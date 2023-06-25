@@ -1,0 +1,9 @@
+
+Theoretical Question:
+    Explain in your own words what AJAX is and how it is useful in JavaScript development:
+
+AJAX, or Asynchronous JavaScript and XML, is a rad tech for JavaScript! It makes websites more 
+interactive without annoying reloads. When you do stuff on a site, AJAX quietly talks to the server
+without stopping you. It uses XML or JSON to organize data between the server and the page. The cool
+thing is it can update just parts of a page, no need for a full reload. AJAX is like the secret sauce 
+to make websites awesome and responsive. It's a must-know for web dev students!
