@@ -156,6 +156,6 @@ Promise.all([
 })
 .catch(error => console.error(error));
 
-} catch{
-
+} catch (error){
+    console.log(error);
 }
