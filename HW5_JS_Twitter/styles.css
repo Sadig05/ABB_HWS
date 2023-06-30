@@ -83,7 +83,7 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* Styles for the dialog container */
+
 #post-form-dialog {
     display: none;
     position: fixed;
@@ -99,8 +99,7 @@ body {
     width: 100%;
     border-radius: 8px;
   }
-  
-  /* Styles for the background overlay */
+
   #dialog-overlay {
     display: none;
     position: fixed;
@@ -112,7 +111,7 @@ body {
     z-index: 9998;
   }
   
-  /* Additional styles to center the content within the dialog */
+
   #add-post-form {
     display: flex;
     flex-direction: column;
@@ -144,7 +143,6 @@ body {
   }
 
   
-  /* Responsive styles */
   @media (max-width: 768px) {
     .card {
       padding: 15px;
