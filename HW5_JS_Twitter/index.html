@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <button class="add-button" id="add-post" onclick="addPost()">Add Post</button>
+    <div id="feed">
+        <dialog close class="" id="post-form-dialog">
+            <form method="dialog" id="add-post-form">
+                <div>
+                    <label for="title">Post title</label>
+                    <input type="text" name="title" id="input-title">
+                </div>
+                <div>
+                    <label for="body">Content</label>
+                    <input type="text" name="body" id="input-title">
+                </div>
+                <button type="submit" >confirm</button>
+            </form>
+        </dialog>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
