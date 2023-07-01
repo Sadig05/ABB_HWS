@@ -1,8 +1,7 @@
-const books = [
-    {
+const books = [{
         author: "Lucy Foley",
         name: "List of Invitees",
-        price: 70
+        price: 70,
     },
     {
         author: "Susanna Clarke",
@@ -10,48 +9,68 @@ const books = [
     },
     {
         name: "Design. A Book for Non-Designers.",
-        price: 70
+        price: 70,
     },
     {
         author: "Alan Moore",
         name: "Neonomicon",
-        price: 70
+        price: 70,
     },
     {
         author: "Terry Pratchett",
         name: "Moving Pictures",
-        price: 40
+        price: 40,
     },
     {
         author: "Angus Hyland",
         name: "Cats in Art",
-    }
+    },
 ];
 
+const findAllUniqueFields = (books) => {
+    const uniqueFields = [];
+    books.forEach((item) => {
+        Object.keys(item).forEach((key) => {
+            if (!uniqueFields.includes(key)) {
+                uniqueFields.push(key);
+            }
+        });
+    });
 
-const root = document.querySelector('#root');
-const list = document.createElement('ul');
-books.forEach(item => {
-    const li = document.createElement('li');
-    const name = document.createElement('p');
-    const author = document.createElement('p');
-    const price = document.createElement('p');
+    return uniqueFields;
+};
 
-    try{
-        if(item.name && item.author && item.price){
-            name.textContent = item.name;
-            author.textContent = item.author;
-            price.textContent = item.price;
-            li.appendChild(name)
-            li.appendChild(author)
-            li.appendChild(price)
-            list.appendChild(li)
-            root.appendChild(list)
-        } else{
-            throw new TypeError(`Missing field: ${!item.name ? 'name' : !item.author ? 'author' : 'price'}`);
-        }
-    }
-    catch(error){
+const fields = findAllUniqueFields(books);
+
+const validateBook = (book) => {
+    try {
+        fields.forEach((item) => {
+            if (!Object.keys(book).includes(item)) {
+                throw new TypeError(`Missing property "${item}" in the book object.`);
+            }
+        });
+        return true;
+    } catch (error) {
         console.log(error);
     }
-})
+};
+
+const createBookList = (books) => {
+    const root = document.querySelector("#root");
+    const list = document.createElement("ul");
+
+    books.forEach((item) => {
+        if (validateBook(item)) {
+            const li = document.createElement("li");
+            const bookDetails = Object.entries(item)
+                .map(([key, value]) => `${key}: ${value}`)
+                .join(", ");
+            li.textContent = bookDetails;
+            list.appendChild(li);
+        }
+    });
+
+    root.appendChild(list);
+};
+
+createBookList(books);
